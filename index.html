@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The National Bank</title>
+  <link rel="icon" href="photos/bank-icon.png">
+  <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+</head>
+<body>
+  <div id="first-div" class="mt-5">
+    <h1 class="mb-5 text-center">Welcome back to The National Bank</h1>
+    <div class="container p-4 pt-5 shadow rounded">
+      <h3 class="pb-3">Sign In</h3>
+      <input type="text" placeholder="Account number" maxlength="9" class="form-control border-2 border-success-subtle">
+      <br>
+      <input id="password-input" type="password" placeholder="Password" maxlength="40" class="form-control border-2 border-success-subtle">
+      <div class="mt-3">
+        <input type="checkbox" onclick="showPassword()" style="height: 11px; width: 11px;">
+        <span id="checkbox-text">Show Password</span>
+      </div>
+      <button id="continue-button" class="btn btn-success mt-3" onclick="displaySecondDiv()">Continue</button>
+    </div>
+  </div>
+
+  <div id="second-div" class="container d-none mt-5">
+    <div class="d-flex justify-content-center mb-5">
+      <div class="col-4 bg-success rounded p-3 me-5">
+        <h4>Deopsit</h4>
+        <p id="sum-of-deposits" class="fs-4"></p>
+      </div>
+      <div class="col-4 bg-danger rounded p-3">
+        <h4>Withdraw</h4>
+        <p id="sum-of-withdrawals" class="fs-4"></p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="col-4 bg-secondary rounded p-3 me-5 text-white">
+        <h4>Balance</h4>
+        <p id='balance' class="fs-4"></p>
+      </div>
+      <div class="col-4 bg-secondary rounded p-3 text-white">
+        <h4>Savings</h4>
+        <p id="savings" class="fs-4"></p>
+      </div>
+    </div>
+    <div class="justify-content-center mt-5 shadow rounded p-4 mb-5">
+      <div class="mb-3">
+        <input id="input" placeholder="Amount" type="number" class="form-control border-2 border-success-subtle">
+      </div>
+      <div class="mb-5">
+        <button class="btn btn-success mt-2 me-2" onclick="deposit('balance')">Deposit</button>
+        <button class="btn btn-success mt-2 me-2" onclick="withdraw('balance')">Withdraw</button>
+        <button id="transactions-button" class="btn btn-success mt-2" onclick="viewTransactions()">View Transactions</button>
+        <br>
+        <button class="btn btn-success mt-2 me-2" onclick="deposit('savings')">Deposit To Savings</button>
+        <button class="btn btn-success mt-2 me-2" onclick="withdraw('savings')">Withdraw From Savings</button>
+      </div>
+      <table id="transactions-table" class="table table-bordered d-none">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Savings</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script src="index.js"></script>
+</body>
+</html>
